@@ -1,0 +1,10 @@
+cortexBI
+│
+├── app
+├── agents
+├── analytics
+├── datasets
+├── screenshots
+├── requirements.txt
+├── README.md
+└── architecture.png
