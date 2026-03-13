@@ -5,16 +5,20 @@ def generate_sql(prompt, history=None):
     system_prompt = """
 You are a senior data analyst.
 
-Convert the user question into SQL.
+IMPORTANT RULES:
 
-Use previous conversation context if helpful.
+1. Use ONLY the columns provided in the schema.
+2. Do NOT invent columns.
+3. If a column requested by the user does not exist, choose the closest available column.
+4. Return ONLY valid SQL.
 
-Return ONLY SQL.
+Example:
+If the user asks for category but the table has product,
+use product instead.
 """
 
     messages = [{"role": "system", "content": system_prompt}]
 
-    # Add conversation memory
     if history:
         for item in history[-3:]:
             messages.append({"role": "user", "content": item["question"]})
@@ -29,7 +33,6 @@ Return ONLY SQL.
 
     sql = response['message']['content']
 
-    # Clean formatting
     sql = sql.replace("```sql", "").replace("```", "").strip()
 
     return sql
