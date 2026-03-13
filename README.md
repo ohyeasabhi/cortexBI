@@ -91,12 +91,13 @@ http://localhost:8501
 ---
 
 ## Example Questions
+```
+Revenue by region
+Top 5 products by sales
+Monthly revenue trend
+Which category has highest profit
 
-Revenue by region\n
-Top 5 products by sales\n
-Monthly revenue trend\n
-Which category has highest profit\n
-
+```
 ---
 
 ## Future Improvements
